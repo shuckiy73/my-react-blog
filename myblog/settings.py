@@ -7,6 +7,12 @@ from django.core.management.utils import get_random_secret_key
 from django.utils.translation import gettext_lazy as _
 from dotenv import load_dotenv
 
+from django.core.wsgi import get_wsgi_application
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myblog.settings')
+
+application = get_wsgi_application()
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -34,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'blog',
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
     'rest_framework',
     'corsheaders',
     'ckeditor',
     'ckeditor_uploader',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -72,10 +81,11 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'blog.wsgi.application'
+WSGI_APPLICATION = 'myblog.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
 if DEVELOPMENT_MODE is True:
     DATABASES = {
         "default": {
