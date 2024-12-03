@@ -1,0 +1,8 @@
+msgid "Welcome Dmitry"
+msgstr "Добро пожаловать, Дмитрий"
+
+msgid "Dmitry Dashboard"
+msgstr "Панель управления Дмитрия"
+
+msgid "Dmitry Blog Administration"
+msgstr "Администрирование блога Дмитрия"
